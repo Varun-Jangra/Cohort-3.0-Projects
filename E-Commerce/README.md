@@ -1,66 +1,52 @@
-# Away Travel – E-Commerce Website
+# Sales Insight Dashboard
 
-A responsive e-commerce website project inspired by the Away Travel website. I built this project to practise creating real-world layouts and adding interactive features with JavaScript.
+A simple, responsive retail sales dashboard built as an internship portfolio project. It uses the atomic design principle: small reusable **atoms** build **molecules**, which are combined into dashboard **organisms**.
 
 ## Features
 
-- Responsive navigation bar for desktop and mobile screens
-- Announcement bar that changes its message and colour every 3 seconds
-- Product sliders with working **Previous** and **Next** buttons
-- Product card hover effects
-- Interactive “Reasons to get Away” section
-  - Hovering over a card on the right changes the large image on the left
-  - The last hovered card stays highlighted
-- Responsive layout for tablet and mobile devices
+- Dashboard route at `/dashboard`
+- Revenue data for 2022, 2023, and 2024
+- Year selector and a custom sales-threshold filter
+- Bar, line, and pie chart controls using Recharts
+- Responsive Tailwind CSS interface and reusable TypeScript components
 
-## Technologies Used
+## Data source
 
-- HTML5
-- CSS3
-- JavaScript
-- Remix Icon
+The displayed values are local mock data designed for a focused front-end demo. Their structure and 2022–2024 date range were inspired by Kaggle's [FMCG Daily Sales Data (2022–2024)](https://www.kaggle.com/datasets/beatafaron/fmcg-daily-sales-data-to-2022-2024), a CC0 synthetic dataset with daily retail, discount, and e-commerce sales records. No Kaggle file is bundled in this repository.
 
-## How to Run the Project
+## Tech stack
 
-1. Clone this repository:
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- Recharts
+- Lucide React icons
 
+## Run locally
+
+1. Install Node.js 20.9 or newer.
+2. Install the project packages:
    ```bash
-   git clone https://github.com/your-username/your-repository-name.git
+   npm install
    ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Visit [http://localhost:3000/dashboard](http://localhost:3000/dashboard).
 
-2. Open the project folder.
-3. Open `index.html` in your browser.
+## Project structure
 
-You can also use the **Live Server** extension in VS Code to run it locally.
-
-## Project Structure
-
-```text
-├── Assets/        # Fonts and project assets
-├── index.html     # Website structure
-├── style.css      # Styling and responsive design
-└── script.js      # Interactive JavaScript features
+```
+app/                  # Routes and global styles
+components/atoms/     # Small presentational pieces
+components/molecules/ # Combined input controls
+components/organisms/ # Dashboard and chart sections
+lib/                  # Mock sales data and helpers
 ```
 
-## What I Learned
+## Next improvements
 
-While building this project, I practised:
-
-- Using CSS Flexbox and Grid for layouts
-- Making a website responsive with media queries
-- Selecting HTML elements using JavaScript
-- Using `setInterval()` for changing announcement messages
-- Using `mouseenter` events to change images dynamically
-- Building horizontal sliders using `scrollBy()`
-- Debugging JavaScript errors such as using `querySelector()` instead of `querySelectorAll()`
-
-## Future Improvements
-
-- Add working product pages and shopping cart functionality
-- Add a search feature
-- Make the navigation links functional
-- Add smoother image transition effects
-
-## Author
-
-Created by Varun as a frontend development learning project.
+- Replace `lib/sales-data.ts` with a server-side data source or API route.
+- Store the selected filters in the URL for sharable dashboard views.
+- Add category, region, and comparison filters after connecting a real data source.
